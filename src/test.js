@@ -1,6 +1,18 @@
-let arr = [1,1,1,2,2,2,8,8,8,8,5,5,6,6,7,7,11,12,12]
+Array.prototype.myFilter = function(callback) {
+    var filteredArray = [];
 
-const getUniqueNum = (dutyArray) => {
-    return [...new Set(dutyArray)]
-}
-console.log(getUniqueNum(arr))
+    for (var i = 0; i < this.length; i++) {
+        if (callback(this[i], i, this)) {
+            filteredArray.push(this[i]);
+        }
+    }
+
+    return filteredArray;
+};
+
+var numbers = [1, 2, 3, 4, 5, 6];
+var evenNumbers = numbers.myFilter(function(element) {
+    return element % 2 === 0;
+});
+
+console.log(evenNumbers);
