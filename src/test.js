@@ -1,18 +1,10 @@
-Array.prototype.myFilter = function(callback) {
-    var filteredArray = [];
-
-    for (var i = 0; i < this.length; i++) {
-        if (callback(this[i], i, this)) {
-            filteredArray.push(this[i]);
-        }
+function customMap(callback, array) {
+    let res = []
+    for (let i = 0; i < array.length; i++) {
+        res.push(callback(array[i]))
     }
+    return res
+}
 
-    return filteredArray;
-};
-
-var numbers = [1, 2, 3, 4, 5, 6];
-var evenNumbers = numbers.myFilter(function(element) {
-    return element % 2 === 0;
-});
-
-console.log(evenNumbers);
+console.log('customMap: ', customMap((el) => el + 1, [1, 2, 3]))
+console.log('map: ', [1, 2, 3].map(el => el + 1));
