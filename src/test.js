@@ -1,11 +1,28 @@
-function foo (m) {
-    return (c) => {
-        return c * m
-    }
+var obj = { num: 2 };
+
+function add(a, b){
+    return this.num + a + b;
 }
 
-const f = foo(2)
-const f2 = foo(5)
+console.log(add.call(obj, 3, 5));
 
+////////////////////////////////////////////
 
-console.log(f(2), f2(2))
+var obj = { num: 2 };
+
+function add(a, b){
+    return this.num + a + b;
+}
+
+console.log(add.apply(obj, [3, 5]));
+
+////////////////////////////////////////////
+
+var obj = { num: 2 };
+
+function add(a, b){
+    return this.num + a + b;
+}
+
+const func = add.bind(obj, 3, 5);
+func(); // Возвращает 10
