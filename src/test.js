@@ -31,3 +31,9 @@ for (let i = 1; i < words.length; i++) {
 
 const outputString = words.join('');
 console.log(outputString);  // Выведет: heloWorld
+
+/////////////////////////
+////////////////////////
+let arr = [1,1,1,2,2,2,3,3,3,3,5,5,6,6,7,7,11,12,12]
+const getUniqueNum = (dutyArray) => [...new Set(dutyArray)]
+console.log(getUniqueNum(arr))
